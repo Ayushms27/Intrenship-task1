@@ -4,7 +4,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 # Data preprocessing
 train_datagen = ImageDataGenerator(rescale=1./255)
 train_generator = train_datagen.flow_from_directory(
-        'C:/Users/AYUSHMS/Desktop/Bharat_Interns/train_data_dir',
+        "C:/Users/AYUSHMS/Desktop/Cat&Dog_classifire/train_data_dir",
         target_size=(150, 150),
         batch_size=2,
         class_mode='binary')
@@ -47,7 +47,7 @@ import numpy as np
 from tensorflow.keras.preprocessing import image
 
 # Load an image for prediction
-img_path = "C:/Users/AYUSHMS/Desktop/Bharat_Interns/exp2_img.jpg"
+img_path = "C:/Users/AYUSHMS/Desktop/Cat&Dog_classifire/Exp_img_A.jpg"
 img = image.load_img(img_path, target_size=(150, 150))
 
 # Convert the image to a numpy array
@@ -61,3 +61,9 @@ prediction = model.predict(img_array)
 
 # Print the prediction result
 print('Prediction:', prediction[0][0])
+
+if  prediction[0][0] == 1.0:
+    print("Dog")
+    
+else:
+    print("cat")    
